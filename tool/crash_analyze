@@ -1,0 +1,522 @@
+#!/usr/bin/env python2
+import os
+import sys
+import time
+from subprocess import PIPE, Popen
+import datetime
+from tabulate import tabulate
+import copy
+import shutil
+import md5
+
+# Boleh ganti - ganti disini gan :)
+core_dump_dir = "core_dumps/" 				# tmp dir for core dumps
+gdb_sleep_time = 0.1 						# timeout for gdb cmd communication
+binary = "fuzzer/bin"							# callable application path (used for testing inputs)
+
+html_report = "crash_report/"		# path for html report output
+html_subdir = "subpages/"
+afl_input_dir = "fuzzer/in/"					# default fuzzing input dir location
+afl_crashing_input_dir = "fuzzer/crashing/" 	# default fuzzing crash input dir location
+#---------------------------------------------------------------------------------------------
+
+if not (os.path.isfile(binary)):
+	print "ERROR: "+binary+" not found!"
+	sys.exit(-1)
+
+if len(sys.argv) != 2:
+	print "usage :	crash_analyze fuzzer_output_dir"
+	sys.exit(0)
+
+sync_dir = sys.argv[1]+"/"
+if os.path.isdir(sync_dir):
+	print "ANALYZE: "+sync_dir+ " search for crashes ..."
+
+class Crash:
+	def __init__(self, arg0, arg1, arg2):
+		self.file = arg0
+		self.ctime = arg1
+		self.fuzzer = arg2
+		self.dump_file = "None"
+		self.hash = "None"
+		self.descr = "None"
+		self.classification = "None"
+		self.exploitable = "None"
+
+	def call(self):
+		cmd = "./"+self.fuzzer.cmd
+		cmd = cmd.replace("bin", binary)
+		cmd = cmd.replace("@@", self.file)
+		return cmd
+
+	def info(self):
+		row = []
+		time_diff = self.ctime - self.fuzzer.start_time
+		row.append(os.path.basename(self.file)[:10]+"...")
+		row.append(self.hash[:40]+"...")
+		row.append(self.classification)
+		row.append(self.descr)
+		row.append(time_diff)		
+		return row
+
+class Fuzzer:
+	def __init__(self, arg0):
+		self.id = arg0
+		self.crash_dir = None
+		self.crashes = None
+		self.cmd = None
+		self.start_time = None
+		self.last_update = None
+		self.stats = None
+
+
+	def tabulate(self):
+		print "fuzzer: "+self.id+" @ "+str(self.start_time)
+		table = []
+		for crash in self.crashes:
+			table.append( [crash.file, crash.ctime] )
+
+		print tabulate(table, headers=["crashing file","time"])
+		print ""
+
+	def crash_info(self):
+		table = []
+		for crash in self.crashes:
+			table.append(crash.info())
+		return tabulate(table, headers=["file", "hash", "class","descr", "dtime"])
+
+# collect all fuzzers
+fuzzer_coll = []
+
+# collect information in fuzzer datatype
+for subdir in os.listdir(sync_dir):
+	if(os.path.isfile(sync_dir+subdir)):
+		continue
+		
+	fuzzer = Fuzzer(subdir)
+
+	crash_dir = sync_dir+subdir+"/crashes/"
+	fuzzer.crash_dir = crash_dir
+	files = []
+	for item in os.listdir(crash_dir):
+		if(os.path.isfile(crash_dir+item)):
+			if(item == "README.txt"): continue		# skip readme files
+
+			# perhaps this is just the last modified time ... unclear
+			time_stamp = os.path.getctime(crash_dir+item)
+			creation_time = datetime.datetime.utcfromtimestamp(float(time_stamp))
+
+			crash = Crash(crash_dir+item, creation_time, fuzzer)
+			files.append(crash) 					# collect crash files
+			print "+ crash "+item+" found @ "+subdir+" @ "+str(creation_time)
+	fuzzer.crashes = files
+
+	# grab fuzzer stats to get used cmd line
+	stat_file = sync_dir+subdir+"/fuzzer_stats"
+	if(os.path.isfile(stat_file)):
+		f = open(stat_file)
+		content = f.readlines()
+		# grap starttime
+		timestr = content[0]
+		time_value = float((timestr.split(": ")[1]).rstrip())
+		fuzzer.start_time = datetime.datetime.utcfromtimestamp(time_value)
+
+		timestr = content[1]
+		time_value = float((timestr.split(": ")[1]).rstrip())
+		fuzzer.last_update = datetime.datetime.utcfromtimestamp(time_value)
+
+		fuzzer.stats = content
+
+		# grab cmd line
+		cmd = content[-1]
+		cmd = cmd.split(" ./")[1]
+		fuzzer.cmd = cmd.rstrip()
+		print fuzzer.cmd + " (started @ "+str(fuzzer.start_time)+")"
+		fuzzer_coll.append(fuzzer)
+	else:
+		print "--> found 1 fuzzer instance without stats"
+		fuzzer.no_stats = 1
+
+print "SUMMARY: found "+str(len(fuzzer_coll))+" fuzzing instances in "+sync_dir
+
+# summarize crashes
+# print "+"*120
+# for fuzzer in fuzzer_coll:
+# 	fuzzer.tabulate()
+
+#fuzzer not only walk on that side
+
+# call each crash and get signature for comparision
+print "+"*120
+print "EXECUTE: run all crashes and classify them ..."
+
+# set ulimit -c unlimited to get core dumps
+# TODO: check for ulimit -c = unlimited, else warn user ...
+# p = Popen("ulimit -c".split(), stdout=PIPE, shell=True)
+# p.wait()
+
+# run each call with gov binary while tracking coverage
+if not os.path.exists(core_dump_dir):
+	os.makedirs(core_dump_dir)
+	print "make dir fir core dump 1"
+else:
+	shutil.rmtree(core_dump_dir)
+	os.makedirs(core_dump_dir)
+	print "make dir fir core dump 2"
+
+core_cnt = 0
+print "test 3"
+for fuzzer in fuzzer_coll:
+	for crash in fuzzer.crashes:
+		print crash.call()
+		proc = Popen(crash.call().split(), stdout=PIPE, stderr=None)
+		#proc = Popen("ulimit -c".split(), stdout=PIPE, shell=True, stderr=None)
+		proc.wait()
+		print "test 4"
+		#print proc.communicate()
+
+		#backup core dump in core dump dir
+		os.rename("core", core_dump_dir+"core"+str(core_cnt))
+		crash.dump_file = core_dump_dir+"core"+str(core_cnt)
+		core_cnt += 1
+		if not os.path.isfile("core"):
+			break
+	# 	break
+	# break
+
+for fuzzer in fuzzer_coll:
+	for crash in fuzzer.crashes: 
+		if(crash.dump_file == "None"):
+			continue
+		#print call gdb
+		call = "gdb "+binary+" "+crash.dump_file
+		print call+" ... "
+
+		proc = Popen(call.split(), stdin=PIPE, stdout=PIPE)
+		time.sleep(gdb_sleep_time)
+		proc.stdin.write("exploitable \n")
+		time.sleep(gdb_sleep_time)
+		proc.stdin.write("quit \n")
+
+		exploitable = []
+		for line in iter(proc.stdout.readline,''):
+			exploitable.append( line.rstrip() )
+
+		# remove some garbage
+		for i, line in enumerate(exploitable):
+			if("Core was generated by " in line):
+				exploitable = exploitable[i:]
+				break
+
+		crash_description = "None"
+		crash_hash = "None"
+		crash_class = "None"
+
+
+		#Exploitable information
+		for line in exploitable:
+			if "Hash: " in line:
+				crash_hash = line.split("Hash: ")[1]
+			if "Description: " in line:
+				crash_description = line.split("Description: ")[1]
+			if "Exploitability Classification: " in line:
+				crash_class = line.split("Exploitability Classification: ")[1]
+
+		crash.hash = crash_hash
+		crash.descr = crash_description
+		crash.classification = crash_class
+		crash.exploitable = exploitable
+
+# remove core dumps
+shutil.rmtree(core_dump_dir)
+
+
+# Print crash overview per fuzzer ...
+for fuzzer in fuzzer_coll:
+	print ""
+	print fuzzer.id+" exec: "+fuzzer.cmd
+	print fuzzer.crash_info()
+
+
+print "+"*120
+print "BUILD: crash collection "
+# now minimize the crashes
+# crash : signature -> [possible_cmd[], files[], class, decr, first_occur, exploitable_stdout]
+
+# build collection
+unique_crashes = {}
+for fuzzer in fuzzer_coll:
+	for crash in fuzzer.crashes:
+		if not (unique_crashes.has_key(crash.hash)):
+			unique_crashes[crash.hash] = [[crash.fuzzer.cmd],[crash.file], crash.classification, crash.descr, crash.ctime, crash.exploitable, 1 ]
+		else:
+
+			if not (crash.fuzzer.cmd in unique_crashes[crash.hash][0]):
+				unique_crashes[crash.hash][0].append(crash.fuzzer.cmd)
+			unique_crashes[crash.hash][1].append(crash.file)
+
+			if(crash.ctime < unique_crashes[crash.hash][4]):
+				unique_crashes[crash.hash][4] = crash.ctime
+
+			unique_crashes[crash.hash][6] += 1
+
+# sort collection based on error detection time
+for item in sorted(unique_crashes.items(), key=lambda e: e[1][4]):
+	print item[1][4]
+
+#[3] not available longer
+# get min start time of fuzzers ...
+min_time = fuzzer_coll[0].start_time
+for fuzzer in fuzzer_coll[1:]:
+	if(min_time > fuzzer.start_time):
+		min_time = fuzzer.start_time
+
+# save collection
+# crash_min_dir = "crash_collection/"
+# if not os.path.exists(crash_min_dir):
+# 	os.makedirs(crash_min_dir)
+# else:
+# 	shutil.rmtree(crash_min_dir)
+# 	os.makedirs(crash_min_dir)
+
+# for crash_sig, info in unique_crashes.iteritems():
+# 	print "Minimizing: "+crash_sig
+# 	#print info
+# 	count = 0
+
+# 	# create subdir for each crash signature
+# 	if not os.path.exists(crash_min_dir+crash_sig):
+# 		os.makedirs(crash_min_dir+crash_sig)
+
+# 	# save crash info
+# 	info_file = open(crash_min_dir+crash_sig+"/info.txt", 'wb')
+# 	info_file.write("%s\n" % str(info[0]))
+# 	info_file.write("%s\n" % str(info[2]))
+# 	info_file.write("%s\n" % str(info[3]))
+# 	info_file.write("%s\n" % str(info[6]))
+# 	abstime = info[4]
+# 	dtime = (abstime - min_time)
+# 	info_file.write("%s\n" % str(dtime))
+# 	info_file.write("%s\n" % str(info[5]))
+
+# 	# save crashing files in subdirs (no dublicates)
+# 	crash_num = 0
+# 	for crash_file in info[1]:
+# 		crash_num += 1
+# 		# check if md5(file) is already there ...
+# 		new_hash = md5.md5(file(crash_file).read()).hexdigest()
+# 		dub = 0
+# 		for filename in os.listdir(crash_min_dir+crash_sig):
+# 			filehash = md5.md5(file(crash_min_dir+crash_sig+"/"+filename).read()).hexdigest()
+# 			if(new_hash == filehash):
+# 				dub = 1
+# 				count += 1
+# 				break
+
+# 		if not dub:
+# 			shutil.copyfile(crash_file, crash_min_dir+crash_sig+"/input_file_"+str(crash_num))
+# 	print "Adding files & reject "+str(count)+" dublicates ..."
+
+
+print "+"*120
+print "GENERATE html report ..."
+
+# finally write html report
+if not os.path.exists(html_report):
+	os.makedirs(html_report)
+	os.makedirs(html_report+html_subdir)
+else:
+	shutil.rmtree(html_report)
+	os.makedirs(html_report)
+	os.makedirs(html_report+html_subdir)
+
+style = """
+<style>
+table { width:100%; text-align: center;}
+table, th, td { border: 1px solid black; border-collapse: collapse;}
+th, td { padding: 5px; text-align: center;}
+table#t01 tr:nth-child(even) { background-color: #eee;}
+table#t01 tr:nth-child(odd) { background-color:#fff;}
+table#t01 th { background-color: white; color: black; }
+</style>
+"""
+
+def create_sub_page(crash_sig, info):
+	print "create subpage for "+crash_sig
+	subtitle = "Report for "+crash_sig
+	report_subtitle = "Creator: Ikhwan M. Iqbal - NTUST"
+	subpage = "<html><head>"+style+"</head><body><h3>"+subtitle+"</br>"+report_subtitle+"</h3>"
+	
+	# build overview for a single crash
+	subpage += """<table border="0" id="t01" style="width:80%;">"""
+	subpage += "<th>Description</th><th>Data</th>"
+	
+	subpage += '<tr><td> CMD </td>'
+	subpage += '<td style="text-align:left">'
+	for line in info[0]:
+		subpage += line+"</br>"
+	subpage += "</td></tr>"
+
+	subpage += "<tr><td> Found after </td>"
+	dtime = (info[4] - min_time)
+	subpage += '<td style="text-align:left">'+str(dtime)+"</td>"
+	subpage += "</td></tr>"
+
+	subpage += "<tr><td> Description </td>"
+	subpage += '<td style="text-align:left">'+str(info[3])+"</td>"
+	subpage += "</td></tr>"
+
+	subpage += "<tr><td> Signal </td>"
+	subpage += '<td style="text-align:left">'+str(info[5][1])+"</td>"
+	subpage += "</td></tr>"
+
+	subpage += "<tr><td> Classification </td>"
+	subpage += '<td style="text-align:left">'+str(info[2])+"</td>"
+	subpage += "</td></tr>"
+
+	subpage += "<tr><td> Occurence </td>"
+	subpage += '<td style="text-align:left">'+str(info[4])+"</td>"
+	subpage += "</td></tr>"
+
+	# print hexdump of input file as <textarea rows="4" cols="50"></textarea>
+	subpage += "<tr><td> Files </td>"
+	subpage += '<td style="text-align:left">'
+	for line in info[1]:			# each file
+		subpage += line+"</br>"
+		cmd = "xxd "+line
+		proc = Popen(cmd.split(), stdout=PIPE)
+		xxd_out = []
+		for line in iter(proc.stdout.readline,''):
+			xxd_out.append(line)	
+		subpage += '<textarea rows="'+str(len(xxd_out))+'" cols="80" style="font-family: monospace; font-size: 14px;">'		
+		for line in xxd_out:
+			subpage += line
+		subpage += "</textarea>"
+		subpage += "</br>"
+	subpage += "</td></tr>"
+
+	# print gdb stdout 
+	subpage += "<tr><td> GDB exploitable: </td>"
+	subpage += '<td style="text-align:left">'
+	for line in info[5]:
+		subpage += line+"</br>"
+	subpage += "</td></tr>"
+	
+	subpage += "</table>"
+	subpage += "</body></html>"
+	f = open(html_report+html_subdir+crash_sig+'.html','w')
+	f.write(subpage)
+	f.close()
+	return html_subdir+crash_sig+'.html'
+
+
+def create_setup_page():
+	report_title = "Fuzzing configuration"
+	report_subtitle = "Creator: Ikhwan M. Iqbal - NTUST"
+	page = "<html><head>"+style+"</head><body><h3>"+report_title+"</br>"+report_subtitle+"</h3>"
+
+	# build fuzzer instance overview
+	page += '<table border="0" id="t01">'
+	page += "<th>fuzzer ID</th><th>commandline</th><th>runtime</th><th>cycles</th><th>exec</th><th>exec per sec</th><th>paths total</th><th>Fuzzer crashes</th>"
+	for fuzzer in fuzzer_coll:
+		page += "<tr>"
+		page += "<td>"+fuzzer.id+"</td>"
+		page += '<td style="text-align:left">./'+str(fuzzer.cmd)+"</td>"
+		# page += "<td>"+str(fuzzer.last_update)+"</td>"
+		page += "<td>"+str(fuzzer.last_update-fuzzer.start_time)+"</td>"
+		
+		for line in fuzzer.stats:
+			tag = ["cycles_done", "execs_done", "execs_per_sec", "paths_total"]
+			for item in tag:
+				if(item in line):
+					value = line.split(": ")[1].strip()
+					page += "<td>"+str( value )+"</td>"
+
+		page += "<td>"+str(len(fuzzer.crashes))+"</td>"
+
+	page += "</tr>"
+	page += "</table>"
+
+	if(os.path.exists(afl_input_dir)):
+		page += "</br><h3>Input Files</h3>"
+		page += '<table border="0" id="t01">'
+		page += "<tr><th>filename</th><th>data</th></tr>"
+		for input_file in os.listdir(afl_input_dir):
+			# run xxd
+			cmd = "xxd "+afl_input_dir+input_file
+			proc = Popen(cmd.split(), stdout=PIPE)
+			xxd_out = []
+			for line in iter(proc.stdout.readline,''):
+				xxd_out.append(line)
+			# write xxd output
+			page += "<tr>"
+			page += "<td>"+input_file+"</td>"	
+			page += '<td><textarea rows="'+str(len(xxd_out))+'" cols="68" style="font-family: monospace; font-size: 14px;">'		
+			for input_file in xxd_out:
+				page += input_file
+			page += "</textarea></td>"
+			page += "</tr>"
+		page += "</table>"
+
+	if(os.path.exists(afl_crashing_input_dir)):
+		page += "</br><h3>Crashing Input Found by Concolic Engine</h3>"
+		page += '<table border="0" id="t01">'
+		page += "<tr><th>filename</th><th>data</th></tr>"
+		for input_file in os.listdir(afl_crashing_input_dir):
+			# run xxd
+			cmd = "xxd "+afl_crashing_input_dir+input_file
+			proc = Popen(cmd.split(), stdout=PIPE)
+			xxd_out = []
+			for line in iter(proc.stdout.readline,''):
+				xxd_out.append(line)
+			# write xxd output
+			page += "<tr>"
+			page += "<td>"+input_file+"</td>"	
+			page += '<td><textarea rows="'+str(len(xxd_out))+'" cols="68" style="font-family: monospace; font-size: 14px;">'		
+			for input_file in xxd_out:
+				page += input_file
+			page += "</textarea></td>"
+			page += "</tr>"
+		page += "</table>"
+
+	f = open(html_report+html_subdir+'setup.html','w')
+	f.write(page)
+	f.close()
+
+
+report_title = "Fuzzing Report"
+report_subtitle = "Creator: Ikhwan M. Iqbal - NTUST"
+page = "<html><head>"+style+"</head><body><h3>"+report_title+"</br>"+report_subtitle+"</h3>"
+
+# build crash overview table
+page += """<table border="0" id="t01">"""
+page += "<th>Crash Signature</th><th>Description</th><th>Exploitability</th><th>dTime</th><th>Occurence</th>"
+for item in sorted(unique_crashes.items(), key=lambda e: e[1][4]):
+	crash_sig = item[0]
+	info = item[1]
+
+	sub_page_link = create_sub_page(crash_sig, info)
+	page += "<tr>"
+	page += "<td> <a href="+sub_page_link+">"+crash_sig+"</a> </td>"
+	page += "<td>"+str(info[3])+"</td>"
+	page += "<td>"+str(info[2])+"</td>"
+	dtime = (info[4] - min_time)
+	page += "<td>"+str(dtime)+"</td>"
+	page += "<td>"+str(info[6])+"</td>"
+	page += "</tr>"
+page += "</table>"
+
+page += "</br>"
+# place fuzzing config link
+create_setup_page()
+page += '<a href='+html_subdir+'setup.html> Configuration</a>'
+page += "</br>"
+page += "</br>"
+page += "<a href=cov_report/index.html> Coverage Report </a> "
+page += "</body></html>"
+
+f = open(html_report+'report.html','w')
+f.write(page)
+f.close()
+
+print "FINISH"
