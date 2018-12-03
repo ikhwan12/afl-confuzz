@@ -53,6 +53,3 @@ if not os.path.isfile(conf_files[1]):
 	print "create: "+conf_files[1]
 else:
 	print "exists: "+conf_files[1]
-
-
-#copyfile("bin", "fuzz/bin")
