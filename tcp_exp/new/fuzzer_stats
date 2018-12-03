@@ -1,0 +1,27 @@
+start_time        : 1543693420
+last_update       : 1543735840
+fuzzer_pid        : 3627
+cycles_done       : 30
+execs_done        : 70499032
+execs_per_sec     : 1430.30
+paths_total       : 940
+paths_favored     : 73
+paths_found       : 939
+paths_imported    : 0
+max_depth         : 30
+cur_path          : 939
+pending_favs      : 1
+pending_total     : 56
+variable_paths    : 0
+stability         : 100.00%
+bitmap_cvg        : 0.99%
+unique_crashes    : 53
+unique_hangs      : 0
+last_path         : 1543735180
+last_crash        : 1543720283
+last_hang         : 0
+execs_since_crash : 18521753
+exec_timeout      : 20
+afl_banner        : fuzzgoat
+afl_version       : 2.51b
+command_line      : aflnew/afl-fuzz -i in/ -o out_new/ -p new ./fuzzgoat/fuzzgoat @@
