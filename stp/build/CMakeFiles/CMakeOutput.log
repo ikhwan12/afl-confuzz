@@ -1,0 +1,717 @@
+The system is: Linux - 4.14.0-kali3-amd64 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: ;
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is Clang, found in "/home/klee/klee_build/stp/build/CMakeFiles/2.8.12.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: ;
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is Clang, found in "/home/klee/klee_build/stp/build/CMakeFiles/2.8.12.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3915032425/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3915032425.dir/build.make CMakeFiles/cmTryCompileExec3915032425.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3915032425.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3915032425.dir/testCCompiler.c.o   -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec3915032425
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3915032425.dir/link.txt --verbose=1
+/usr/bin/cc         CMakeFiles/cmTryCompileExec3915032425.dir/testCCompiler.c.o  -o cmTryCompileExec3915032425 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3829567346/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3829567346.dir/build.make CMakeFiles/cmTryCompileExec3829567346.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3829567346.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3829567346.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec3829567346
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3829567346.dir/link.txt --verbose=1
+/usr/bin/cc       -v CMakeFiles/cmTryCompileExec3829567346.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec3829567346 -rdynamic  
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8.4
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.9.3
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.4
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.3
+Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8
+ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec3829567346 /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../.. -L/lib -L/usr/lib CMakeFiles/cmTryCompileExec3829567346.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec3829567346/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec3829567346.dir/build.make CMakeFiles/cmTryCompileExec3829567346.dir/build]
+  ignore line: [make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec3829567346.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3829567346.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec3829567346]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3829567346.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc       -v CMakeFiles/cmTryCompileExec3829567346.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec3829567346 -rdynamic  ]
+  ignore line: [Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8.4]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.9]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.9.3]
+  ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8]
+  ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.4]
+  ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9]
+  ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.3]
+  ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8]
+  link line: [ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec3829567346 /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../.. -L/lib -L/usr/lib CMakeFiles/cmTryCompileExec3829567346.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/bin/ld] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec3829567346] ==> ignore
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8]
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../..]
+    arg [-L/lib] ==> dir [/lib]
+    arg [-L/usr/lib] ==> dir [/usr/lib]
+    arg [CMakeFiles/cmTryCompileExec3829567346.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/crtend.o] ==> ignore
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8] ==> [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> [/usr/lib]
+  collapse library dir [/lib] ==> [/lib]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  implicit libs: [c]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/4.8;/usr/lib/x86_64-linux-gnu;/lib/x86_64-linux-gnu;/lib64;/usr/lib;/lib]
+  implicit fwks: []
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec215272411/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec215272411.dir/build.make CMakeFiles/cmTryCompileExec215272411.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec215272411.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec215272411.dir/testCXXCompiler.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec215272411
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec215272411.dir/link.txt --verbose=1
+/usr/bin/c++          CMakeFiles/cmTryCompileExec215272411.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec215272411 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4128754904/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4128754904.dir/build.make CMakeFiles/cmTryCompileExec4128754904.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec4128754904.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec4128754904.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec4128754904
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4128754904.dir/link.txt --verbose=1
+/usr/bin/c++        -v CMakeFiles/cmTryCompileExec4128754904.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec4128754904 -rdynamic  
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8.4
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.9.3
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.4
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.3
+Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8
+ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec4128754904 /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../.. -L/lib -L/usr/lib CMakeFiles/cmTryCompileExec4128754904.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec4128754904/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec4128754904.dir/build.make CMakeFiles/cmTryCompileExec4128754904.dir/build]
+  ignore line: [make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec4128754904.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec4128754904.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec4128754904]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4128754904.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++        -v CMakeFiles/cmTryCompileExec4128754904.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec4128754904 -rdynamic  ]
+  ignore line: [Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8.4]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.9]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.9.3]
+  ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8]
+  ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.4]
+  ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9]
+  ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.3]
+  ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8]
+  link line: [ "/usr/bin/ld" -export-dynamic -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTryCompileExec4128754904 /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../.. -L/lib -L/usr/lib CMakeFiles/cmTryCompileExec4128754904.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/bin/ld] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec4128754904] ==> ignore
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8]
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../..]
+    arg [-L/lib] ==> dir [/lib]
+    arg [-L/usr/lib] ==> dir [/usr/lib]
+    arg [CMakeFiles/cmTryCompileExec4128754904.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/crtend.o] ==> ignore
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8] ==> [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> [/usr/lib]
+  collapse library dir [/lib] ==> [/lib]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/4.8;/usr/lib/x86_64-linux-gnu;/lib/x86_64-linux-gnu;/lib64;/usr/lib;/lib]
+  implicit fwks: []
+
+
+Performing C++ SOURCE FILE Test HAVE_FLAG_STD_CPP11 succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3828857187/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3828857187.dir/build.make CMakeFiles/cmTryCompileExec3828857187.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3828857187.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_FLAG_STD_CPP11   -std=c++11 -o CMakeFiles/cmTryCompileExec3828857187.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3828857187
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3828857187.dir/link.txt --verbose=1
+/usr/bin/c++      -DHAVE_FLAG_STD_CPP11    CMakeFiles/cmTryCompileExec3828857187.dir/src.cxx.o  -o cmTryCompileExec3828857187 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_STD_GNUCPP11 succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2929297475/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2929297475.dir/build.make CMakeFiles/cmTryCompileExec2929297475.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2929297475.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_FLAG_STD_GNUCPP11   -std=gnu++11 -o CMakeFiles/cmTryCompileExec2929297475.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2929297475
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2929297475.dir/link.txt --verbose=1
+/usr/bin/c++      -DHAVE_FLAG_STD_GNUCPP11    CMakeFiles/cmTryCompileExec2929297475.dir/src.cxx.o  -o cmTryCompileExec2929297475 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_STD_GNUCPP0X succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1111580305/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1111580305.dir/build.make CMakeFiles/cmTryCompileExec1111580305.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1111580305.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_FLAG_STD_GNUCPP0X   -std=gnu++0x -o CMakeFiles/cmTryCompileExec1111580305.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec1111580305
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1111580305.dir/link.txt --verbose=1
+/usr/bin/c++      -DHAVE_FLAG_STD_GNUCPP0X    CMakeFiles/cmTryCompileExec1111580305.dir/src.cxx.o  -o cmTryCompileExec1111580305 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_STD_CPP0X succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3988908103/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3988908103.dir/build.make CMakeFiles/cmTryCompileExec3988908103.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3988908103.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_FLAG_STD_CPP0X   -std=c++0x -o CMakeFiles/cmTryCompileExec3988908103.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3988908103
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3988908103.dir/link.txt --verbose=1
+/usr/bin/c++      -DHAVE_FLAG_STD_CPP0X    CMakeFiles/cmTryCompileExec3988908103.dir/src.cxx.o  -o cmTryCompileExec3988908103 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_STDLIB_LIBCPP succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec179579830/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec179579830.dir/build.make CMakeFiles/cmTryCompileExec179579830.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec179579830.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_FLAG_STDLIB_LIBCPP   -stdlib=libc++ -o CMakeFiles/cmTryCompileExec179579830.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec179579830
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec179579830.dir/link.txt --verbose=1
+/usr/bin/c++      -DHAVE_FLAG_STDLIB_LIBCPP    CMakeFiles/cmTryCompileExec179579830.dir/src.cxx.o  -o cmTryCompileExec179579830 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_CPP03 succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec165956917/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec165956917.dir/build.make CMakeFiles/cmTryCompileExec165956917.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec165956917.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_FLAG_CPP03   -std=c++03 -o CMakeFiles/cmTryCompileExec165956917.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec165956917
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec165956917.dir/link.txt --verbose=1
+/usr/bin/c++      -DHAVE_FLAG_CPP03    CMakeFiles/cmTryCompileExec165956917.dir/src.cxx.o  -o cmTryCompileExec165956917 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-Wall succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4236047189/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4236047189.dir/build.make CMakeFiles/cmTryCompileExec4236047189.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec4236047189.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -DHAVE_FLAG_-Wall   -Wall -o CMakeFiles/cmTryCompileExec4236047189.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:178:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-Wall 1
+                  ^
+1 warning generated.
+Linking CXX executable cmTryCompileExec4236047189
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4236047189.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -DHAVE_FLAG_-Wall    CMakeFiles/cmTryCompileExec4236047189.dir/src.cxx.o  -o cmTryCompileExec4236047189 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-Wextra succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3833688631/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3833688631.dir/build.make CMakeFiles/cmTryCompileExec3833688631.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3833688631.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -DHAVE_FLAG_-Wextra   -Wextra -o CMakeFiles/cmTryCompileExec3833688631.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:178:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-Wextra 1
+                  ^
+1 warning generated.
+Linking CXX executable cmTryCompileExec3833688631
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3833688631.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -DHAVE_FLAG_-Wextra    CMakeFiles/cmTryCompileExec3833688631.dir/src.cxx.o  -o cmTryCompileExec3833688631 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-pedantic succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3336926338/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3336926338.dir/build.make CMakeFiles/cmTryCompileExec3336926338.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3336926338.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -DHAVE_FLAG_-pedantic   -pedantic -o CMakeFiles/cmTryCompileExec3336926338.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:178:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-pedantic 1
+                  ^
+Linking CXX executable cmTryCompileExec3336926338
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3336926338.dir/link.txt --verbose=1
+1 warning generated.
+/usr/bin/c++   -std=c++11    -Wall -Wextra -DHAVE_FLAG_-pedantic    CMakeFiles/cmTryCompileExec3336926338.dir/src.cxx.o  -o cmTryCompileExec3336926338 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-Wunused succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1546932379/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1546932379.dir/build.make CMakeFiles/cmTryCompileExec1546932379.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1546932379.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -DHAVE_FLAG_-Wunused   -Wunused -o CMakeFiles/cmTryCompileExec1546932379.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:178:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-Wunused 1
+                  ^
+1 warning generated.
+Linking CXX executable cmTryCompileExec1546932379
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1546932379.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -DHAVE_FLAG_-Wunused    CMakeFiles/cmTryCompileExec1546932379.dir/src.cxx.o  -o cmTryCompileExec1546932379 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-Wsign-compare succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2117832163/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2117832163.dir/build.make CMakeFiles/cmTryCompileExec2117832163.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2117832163.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -Wunused -DHAVE_FLAG_-Wsign-compare   -Wsign-compare -o CMakeFiles/cmTryCompileExec2117832163.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:178:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-Wsign-compare 1
+                  ^
+1 warning generated.
+Linking CXX executable cmTryCompileExec2117832163
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2117832163.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -Wunused -DHAVE_FLAG_-Wsign-compare    CMakeFiles/cmTryCompileExec2117832163.dir/src.cxx.o  -o cmTryCompileExec2117832163 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-Wtype-limits succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2536633890/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2536633890.dir/build.make CMakeFiles/cmTryCompileExec2536633890.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2536633890.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -DHAVE_FLAG_-Wtype-limits   -Wtype-limits -o CMakeFiles/cmTryCompileExec2536633890.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:178:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-Wtype-limits 1
+                  ^
+1 warning generated.
+Linking CXX executable cmTryCompileExec2536633890
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2536633890.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -DHAVE_FLAG_-Wtype-limits    CMakeFiles/cmTryCompileExec2536633890.dir/src.cxx.o  -o cmTryCompileExec2536633890 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-Wuninitialized succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec516292263/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec516292263.dir/build.make CMakeFiles/cmTryCompileExec516292263.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec516292263.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -DHAVE_FLAG_-Wuninitialized   -Wuninitialized -o CMakeFiles/cmTryCompileExec516292263.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:178:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-Wuninitialized 1
+                  ^
+1 warning generated.
+Linking CXX executable cmTryCompileExec516292263
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec516292263.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -DHAVE_FLAG_-Wuninitialized    CMakeFiles/cmTryCompileExec516292263.dir/src.cxx.o  -o cmTryCompileExec516292263 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-Wno-deprecated succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec515266444/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec515266444.dir/build.make CMakeFiles/cmTryCompileExec515266444.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec515266444.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -DHAVE_FLAG_-Wno-deprecated   -Wno-deprecated -o CMakeFiles/cmTryCompileExec515266444.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:177:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-Wno-deprecated 1
+                  ^
+1 warning generated.
+Linking CXX executable cmTryCompileExec515266444
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec515266444.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -DHAVE_FLAG_-Wno-deprecated    CMakeFiles/cmTryCompileExec515266444.dir/src.cxx.o  -o cmTryCompileExec515266444 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-Wstrict-aliasing succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2977168476/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2977168476.dir/build.make CMakeFiles/cmTryCompileExec2977168476.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2977168476.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -DHAVE_FLAG_-Wstrict-aliasing   -Wstrict-aliasing -o CMakeFiles/cmTryCompileExec2977168476.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:177:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-Wstrict-aliasing 1
+                  ^
+1 warning generated.
+Linking CXX executable cmTryCompileExec2977168476
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2977168476.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -DHAVE_FLAG_-Wstrict-aliasing    CMakeFiles/cmTryCompileExec2977168476.dir/src.cxx.o  -o cmTryCompileExec2977168476 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-Wpointer-arith succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3684806818/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3684806818.dir/build.make CMakeFiles/cmTryCompileExec3684806818.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3684806818.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -DHAVE_FLAG_-Wpointer-arith   -Wpointer-arith -o CMakeFiles/cmTryCompileExec3684806818.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:177:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-Wpointer-arith 1
+                  ^
+1 warning generated.
+Linking CXX executable cmTryCompileExec3684806818
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3684806818.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -DHAVE_FLAG_-Wpointer-arith    CMakeFiles/cmTryCompileExec3684806818.dir/src.cxx.o  -o cmTryCompileExec3684806818 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-Wheader-guard succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3381836600/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3381836600.dir/build.make CMakeFiles/cmTryCompileExec3381836600.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3381836600.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -DHAVE_FLAG_-Wheader-guard   -Wheader-guard -o CMakeFiles/cmTryCompileExec3381836600.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:177:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-Wheader-guard 1
+                  ^
+1 warning generated.
+Linking CXX executable cmTryCompileExec3381836600
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3381836600.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -DHAVE_FLAG_-Wheader-guard    CMakeFiles/cmTryCompileExec3381836600.dir/src.cxx.o  -o cmTryCompileExec3381836600 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-Wformat-nonliteral succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec98852650/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec98852650.dir/build.make CMakeFiles/cmTryCompileExec98852650.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec98852650.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wheader-guard -DHAVE_FLAG_-Wformat-nonliteral   -Wformat-nonliteral -o CMakeFiles/cmTryCompileExec98852650.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:177:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-Wformat-nonliteral 1
+                  ^
+1 warning generated.
+Linking CXX executable cmTryCompileExec98852650
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec98852650.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wheader-guard -DHAVE_FLAG_-Wformat-nonliteral    CMakeFiles/cmTryCompileExec98852650.dir/src.cxx.o  -o cmTryCompileExec98852650 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-Winit-self succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec475292672/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec475292672.dir/build.make CMakeFiles/cmTryCompileExec475292672.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec475292672.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wheader-guard -Wformat-nonliteral -DHAVE_FLAG_-Winit-self   -Winit-self -o CMakeFiles/cmTryCompileExec475292672.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:177:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-Winit-self 1
+                  ^
+1 warning generated.
+Linking CXX executable cmTryCompileExec475292672
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec475292672.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wheader-guard -Wformat-nonliteral -DHAVE_FLAG_-Winit-self    CMakeFiles/cmTryCompileExec475292672.dir/src.cxx.o  -o cmTryCompileExec475292672 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_FLAG_-Wunreachable-code succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec348238623/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec348238623.dir/build.make CMakeFiles/cmTryCompileExec348238623.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec348238623.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wheader-guard -Wformat-nonliteral -Winit-self -DHAVE_FLAG_-Wunreachable-code   -Wunreachable-code -o CMakeFiles/cmTryCompileExec348238623.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+In file included from <built-in>:177:
+<command line>:1:19: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define HAVE_FLAG_-Wunreachable-code 1
+                  ^
+1 warning generated.
+Linking CXX executable cmTryCompileExec348238623
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec348238623.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wheader-guard -Wformat-nonliteral -Winit-self -DHAVE_FLAG_-Wunreachable-code    CMakeFiles/cmTryCompileExec348238623.dir/src.cxx.o  -o cmTryCompileExec348238623 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAVE_HASH_SET_STD succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2700246267/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2700246267.dir/build.make CMakeFiles/cmTryCompileExec2700246267.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2700246267.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wheader-guard -Wformat-nonliteral -Winit-self -Wunreachable-code -DHAVE_HASH_SET_STD   -o CMakeFiles/cmTryCompileExec2700246267.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2700246267
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2700246267.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wheader-guard -Wformat-nonliteral -Winit-self -Wunreachable-code -DHAVE_HASH_SET_STD    CMakeFiles/cmTryCompileExec2700246267.dir/src.cxx.o  -o cmTryCompileExec2700246267 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+    #include <unordered_set>
+    int main() {
+      std::unordered_set<int> t;
+    }
+Performing C++ SOURCE FILE Test HAVE_HASH_MULTISET_STD succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3839311242/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3839311242.dir/build.make CMakeFiles/cmTryCompileExec3839311242.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3839311242.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wheader-guard -Wformat-nonliteral -Winit-self -Wunreachable-code -DHAVE_HASH_MULTISET_STD   -o CMakeFiles/cmTryCompileExec3839311242.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3839311242
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3839311242.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wheader-guard -Wformat-nonliteral -Winit-self -Wunreachable-code -DHAVE_HASH_MULTISET_STD    CMakeFiles/cmTryCompileExec3839311242.dir/src.cxx.o  -o cmTryCompileExec3839311242 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+    #include <unordered_set>
+    int main() {
+      std::unordered_multiset<int> t;
+    }
+Performing C++ SOURCE FILE Test HAVE_HASH_MAP_STD succeded with the following output:
+Change Dir: /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec585315681/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec585315681.dir/build.make CMakeFiles/cmTryCompileExec585315681.dir/build
+make[1]: Entering directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec585315681.dir/src.cxx.o
+/usr/bin/c++    -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wheader-guard -Wformat-nonliteral -Winit-self -Wunreachable-code -DHAVE_HASH_MAP_STD   -o CMakeFiles/cmTryCompileExec585315681.dir/src.cxx.o -c /home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec585315681
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec585315681.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11    -Wall -Wextra -pedantic -Wunused -Wsign-compare -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wheader-guard -Wformat-nonliteral -Winit-self -Wunreachable-code -DHAVE_HASH_MAP_STD    CMakeFiles/cmTryCompileExec585315681.dir/src.cxx.o  -o cmTryCompileExec585315681 -rdynamic 
+make[1]: Leaving directory `/home/klee/klee_build/stp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+    #include <unordered_map>
+    int main() {
+      std::unordered_map<int, int> t;
+    }

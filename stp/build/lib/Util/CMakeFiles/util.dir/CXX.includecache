@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/klee/klee_build/stp/build/lib/Util/GitSHA1.cpp
+stp/Util/GitSHA1.h
+/home/klee/klee_build/stp/build/lib/Util/stp/Util/GitSHA1.h
+
+/home/klee/klee_build/stp/src/include/stp/Util/GitSHA1.h
+
